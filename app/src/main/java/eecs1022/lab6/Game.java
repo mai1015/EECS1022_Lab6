@@ -38,7 +38,7 @@ public class Game {
 
     public String place(int row, int col) {
         if (status > 0) return "Error: game is already over.\n\n" + this.toString();
-        if (this.board[row][col] != '.') return String.format("Error: slot @(%d,%d) \n\n%s", row+1, col+1, this.toString());
+        if (this.board[row][col] != '.') return String.format("Error: slot @(%d,%d) already occupied\n\n%s", row+1, col+1, this.toString());
 
         char place;
 
