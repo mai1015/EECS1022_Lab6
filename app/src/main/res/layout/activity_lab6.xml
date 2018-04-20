@@ -11,44 +11,46 @@
     tools:context="eecs1022.lab.Lab6Activity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name of Player X:"
         android:id="@+id/labelNameX"
-        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_alignBottom="@+id/inputNamex"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/inputNamex"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:text="Name of Player X:"
         android:textAlignment="center"
-        />
+        android:textSize="24sp" />
 
     <EditText
+        android:id="@+id/inputNamex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/inputNamex"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/labelNameX"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/labelNameX" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Name of Player O:"
         android:id="@+id/labelNameO"
-        android:layout_below="@+id/inputNamex"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_below="@+id/inputNamex"
+        android:layout_marginTop="20dp"
+        android:text="Name of Player O:"
+        android:textSize="24sp" />
 
     <EditText
+        android:id="@+id/inputNameo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/inputNameo"
-        android:layout_alignTop="@+id/labelNameO"
-        android:layout_toRightOf="@+id/labelNameO"
+        android:layout_alignEnd="@+id/inputNamex"
         android:layout_alignRight="@+id/inputNamex"
-        android:layout_alignEnd="@+id/inputNamex"/>
+        android:layout_alignTop="@+id/labelNameO"
+        android:layout_toRightOf="@+id/labelNameO" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,13 +63,14 @@
         android:layout_marginTop="20dp"/>
 
     <Spinner
+        android:id="@+id/spinnerWho"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerWho"
+        android:layout_alignEnd="@+id/inputNameo"
+        android:layout_alignRight="@+id/inputNameo"
         android:layout_alignTop="@+id/labelWho"
         android:layout_toRightOf="@+id/labelWho"
-        android:layout_alignRight="@+id/inputNameo"
-        android:layout_alignEnd="@+id/inputNameo"/>
+        android:entries="@array/player" />
 
     <Button
         android:layout_width="wrap_content"
@@ -79,7 +82,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:onClick="onCreateGame"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -92,14 +96,15 @@
         android:layout_marginTop="30dp"/>
 
     <Spinner
+        android:id="@+id/spinnerRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerRow"
-        android:layout_alignTop="@+id/labelRow"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/labelRow"
+        android:layout_toEndOf="@+id/labelRow"
         android:layout_toRightOf="@+id/labelRow"
-        android:layout_toEndOf="@+id/labelRow"/>
+        android:entries="@array/rows" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,13 +117,14 @@
         android:layout_marginTop="30dp"/>
 
     <Spinner
+        android:id="@+id/spinnerColumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerColumn"
+        android:layout_alignEnd="@+id/spinnerRow"
+        android:layout_alignRight="@+id/spinnerRow"
         android:layout_alignTop="@+id/labelCloumn"
         android:layout_toRightOf="@+id/labelCloumn"
-        android:layout_alignRight="@+id/spinnerRow"
-        android:layout_alignEnd="@+id/spinnerRow"/>
+        android:entries="@array/rows" />
 
     <Button
         android:layout_width="wrap_content"
@@ -130,7 +136,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:layout_alignRight="@+id/spinnerColumn"
-        android:layout_alignEnd="@+id/spinnerColumn"/>
+        android:layout_alignEnd="@+id/spinnerColumn"
+        android:onClick="onPlayGame"/>
 
     <TextView
         android:layout_width="wrap_content"

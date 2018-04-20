@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">lab6</string>
+    <string name="app_name">EECS1022 W18 Lab 6: Tic-Tac-Toe Game</string>
+    <string-array name="player">
+        <item>Player O</item>
+        <item>Player X</item>
+    </string-array>
+    <string-array name="rows">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
