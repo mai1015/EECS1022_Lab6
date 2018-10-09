@@ -4,7 +4,19 @@ public class Game {
     // Game board
     private char[][] board;
     // to know if game is over 0 normal 1 o wins 2 x wins 3 draws
-    private int status = 0;
+    public enum Status {
+        NORMAL(0),
+        O_WIN(1),
+        X_WIN(2),
+        DRAW(3);
+
+        public int status;
+
+        Status(int i) {
+            status = i;
+        }
+    }
+    private Status status = Status.NORMAL;
     // keep track of turn of player, if false, place O, if true place X
     private boolean isTurn = false;
 
@@ -37,7 +49,7 @@ public class Game {
     }
 
     public String place(int row, int col) {
-        if (status > 0) return "Error: game is already over.\n\n" + this.toString();
+        if (status.status > 0) return "Error: game is already over.\n\n" + this.toString();
         if (this.board[row][col] != '.') return String.format("Error: slot @(%d,%d) already occupied\n\n%s", row+1, col+1, this.toString());
 
         char place;
@@ -54,13 +66,13 @@ public class Game {
         // check if wins
         if (this.hasWon(row, col, place)) {
             if (place == 'X')
-                status = 2;
+                status = Status.X_WIN;
             else
-                status = 1;
+                status = Status.O_WIN;
         }
 
         if (this.isDraw()) {
-            status = 3;
+            status = Status.DRAW;
         }
 
         return this.toString();
@@ -114,13 +126,13 @@ public class Game {
     public String toString() {
         String result;
         switch (status) {
-            case 1:
+            case O_WIN:
                 result = String.format("Game is over with %s being the winner.", nameO);
                 break;
-            case 2:
+            case X_WIN:
                 result = String.format("Game is over with %s being the winner.", nameX);
                 break;
-            case 3:
+            case DRAW:
                 result = String.format("Game is over with a tie between %s and %s", nameO, nameX);
                 break;
             default:
